@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Components\Characters\Pets\Creatures\Dog;
+use App\Components\Characters\Pets\Creatures\Horse;
 use App\Components\Characters\Specialities\Mage;
 use App\Components\Characters\Specialities\Rogue;
 use App\Components\Characters\Specialities\Warrior;
@@ -20,8 +22,15 @@ class World
         echo '=====================================================' . PHP_EOL;
 
         try {
-            $sword = new Sword('Glamdring', 'The sword of the king',
-                50, true);
+            $sword = new Sword(
+                'Glamdring', 'The sword of the king',
+                50, true
+            );
+
+            $anduril = new Sword(
+                'Anduril', 'Super OP',
+                80, true
+            );
         } catch (\Throwable $e) {
             // todo handle error
             die($e->getMessage());
@@ -43,27 +52,36 @@ class World
         }
 
 
-        $maxiHealthPotion = new Potion('Maxi Health Potion',
-            'Turbo Health Potion Deluxe');
+        $maxiHealthPotion = new Potion(
+            'Maxi Health Potion',
+            'Turbo Health Potion Deluxe'
+        );
         //$gobugobu = new Goblin("Gobugobu");
+        $rantanplan = new Dog('Rantanplan');
+        $shadowFax = new Horse('Shadowfax');
         $abrutus = new Warrior("Abrutus");
         $gandolfr = new Mage("Gandolfr");
         $saskue = new Rogue("Saskue");
 
         try {
-            $abrutus->getInventory()->addItem($axeOfDeath);
-            $abrutus->getInventory()->addItem($shieldOfLife);
-            $abrutus->getInventory()->addItem($maxiHealthPotion);
+            $abrutus->giveItemOrPet($axeOfDeath);
+            $abrutus->giveItemOrPet($shieldOfLife);
+            $abrutus->giveItemOrPet($maxiHealthPotion);
+            $abrutus->giveItemOrPet($rantanplan);
+            //$abrutus->giveItemOrPet($gandolfr);
+            // <- impossible puisque Character n'implémente
+            //  pas OwnershipInterface
         } catch (\Throwable $e) {
             // todo handle error
         }
 
         try {
-            $gandolfr->getInventory()->addItem($sword);
+            $gandolfr->giveItemOrPet($sword);
+            $gandolfr->giveItemOrPet($shadowFax);
+            $gandolfr->getPet()?->giveItemOrPet($anduril);
         } catch (\Throwable $e) {
             // todo handle error
         }
-
 
 
         try {
@@ -81,6 +99,6 @@ class World
         $abrutus->useItem($maxiHealthPotion);
 
 
-        var_dump($abrutus);
+        var_dump($gandolfr);
     }
 }
