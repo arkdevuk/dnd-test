@@ -1,0 +1,17 @@
+{
+    "name": "arkdevuk/dnd-test",
+    "description": "video game to discover POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "arkdevuk",
+            "email": "florian.chambon-lacoste@weemars.fr"
+        }
+    ],
+    "require": {}
+}
