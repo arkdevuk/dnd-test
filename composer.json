@@ -13,5 +13,7 @@
             "email": "florian.chambon-lacoste@weemars.fr"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-readline": "*"
+    }
 }

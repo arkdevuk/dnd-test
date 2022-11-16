@@ -118,7 +118,7 @@ abstract class Character
         $itemOrPet->setOwner($this);
 
         if ($itemOrPet instanceof Pet) {
-            // todo store as char's pet
+            //  store as char's pet
             if (!$this->hasPet) {
                 throw new \Exception('You can`t have a pet');
             }
