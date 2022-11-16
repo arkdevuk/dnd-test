@@ -73,7 +73,7 @@ class Room
                 ],
             ],
             [
-                'probability' => .05,
+                'probability' => .01,
                 'data' => [
                     'class' => Goblin::class,
                     'construct' => [
