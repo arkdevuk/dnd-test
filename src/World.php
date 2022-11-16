@@ -8,6 +8,7 @@ use App\Components\Characters\Pets\Creatures\Horse;
 use App\Components\Characters\Specialities\Mage;
 use App\Components\Characters\Specialities\Rogue;
 use App\Components\Characters\Specialities\Warrior;
+use App\Components\Dungeons\Room;
 use App\Components\Items\Consumables\Potion;
 use App\Components\Items\Shields\Shield;
 use App\Components\Items\Weapons\Axe;
@@ -111,7 +112,10 @@ class World
         echo '====================================================='.PHP_EOL;
         echo 'Hello World'.PHP_EOL;
         echo '====================================================='.PHP_EOL;
-        $this->createPlayer();
+        //$this->createPlayer();
+
+        $room = new Room(80);
+        $room->getNarrative();
 
 
     }

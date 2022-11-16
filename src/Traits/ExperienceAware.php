@@ -30,6 +30,7 @@ trait ExperienceAware
         return $this->experienceLevel;
     }
 
+
     /**
      * @return int
      */
